@@ -1,4 +1,3 @@
-<br>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,8 +134,10 @@
     <script src="js/script.js"></script>
 </body>
 </html>
-<br>
-<!--CSS CODE-->
+
+<!--......................................................................................................................................................................-->
+
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -149,6 +150,7 @@ body {
     line-height: 1.6;
     color: #333;
     scroll-behavior: smooth;
+    background: #f0f4f8; /* Subtle background color */
 }
 
 /* Header and Navigation */
@@ -156,9 +158,14 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(13, 12, 12, 0.7); /* Slight dark background */
+    box-shadow: 0 2px 10px rgba(171, 11, 11, 0.3);
     z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+header:hover {
+    background: rgba(13, 12, 12, 1); /* Darker on hover for dynamic effect */
 }
 
 nav {
@@ -168,26 +175,35 @@ nav {
     padding: 1rem 5%;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .nav-brand {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #2d3436;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #f5f6fa;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.nav-brand:hover {
+    color: #0984e3;
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: #2d3436;
+    color: #dfe6e9;
     margin-left: 2rem;
     position: relative;
     padding: 0.5rem 0;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s ease;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
     color: #0984e3;
+    transform: translateY(-5px);
 }
 
 .nav-menu a::after {
@@ -198,7 +214,7 @@ nav {
     width: 0;
     height: 2px;
     background: #0984e3;
-    transition: width 0.3s;
+    transition: width 0.3s ease;
 }
 
 .nav-menu a:hover::after,
@@ -217,10 +233,13 @@ nav {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     gap: 3rem;
     flex-wrap: wrap;
+    animation: slideIn 1s ease-out forwards;
 }
 
 .home-content {
     text-align: center;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .profile-img {
@@ -231,18 +250,25 @@ nav {
     border: 5px solid white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
 }
 
 .home h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #2d3436;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .home p {
     font-size: 1.2rem;
     color: #636e72;
     margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .cta-btn {
@@ -252,7 +278,7 @@ nav {
     color: white;
     text-decoration: none;
     border-radius: 30px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s ease;
 }
 
 .cta-btn:hover {
@@ -265,9 +291,27 @@ nav {
     padding: 6rem 5%;
     max-width: 1200px;
     margin: 0 auto;
-    background: linear-gradient(135deg, #e1f5fe, #e0f7fa);
+    background: linear-gradient(135deg, #ffb3b3 0%, #ff6666 100%); /* Soft warm gradient */
+    background-image: url('https://www.transparenttextures.com/patterns/soft-shadow.png'); /* Subtle fabric texture */
+    background-size: 200%;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Subtle shadow to create depth */
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.about:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Light frosted effect */
+    z-index: 0;
+    transform: scale(1.2);
+    animation: pulse 5s infinite ease-in-out;
 }
 
 .about h2 {
@@ -278,6 +322,9 @@ nav {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 600;
+    z-index: 1;
+    position: relative;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .about-content {
@@ -287,6 +334,9 @@ nav {
     justify-content: center;
     text-align: center;
     gap: 2rem;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .about-content p {
@@ -297,6 +347,7 @@ nav {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    z-index: 1;
 }
 
 .triangle-images {
@@ -304,6 +355,7 @@ nav {
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
+    z-index: 1;
 }
 
 .triangle-img {
@@ -311,12 +363,13 @@ nav {
     text-align: center;
     flex-shrink: 0;
     position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .triangle-img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
 }
 
 .triangle-img img {
@@ -345,6 +398,7 @@ nav {
     margin-bottom: 3rem;
     font-size: 2rem;
     color: #2d3436;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .skills-content {
@@ -395,7 +449,7 @@ nav {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-in-out;
 }
 
 .project-card:hover {
@@ -426,7 +480,7 @@ nav {
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s;
+    transition: background 0.3s ease;
 }
 
 .project-info a:hover {
@@ -475,7 +529,7 @@ form button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s ease;
 }
 
 form button:hover {
@@ -497,55 +551,15 @@ footer {
 .social-links a {
     color: white;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .social-links a:hover {
     color: #0984e3;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .about-img {
-        margin: 0 auto 2rem;
-    }
-
-    .home {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-
-    .home h1 {
-        font-size: 2rem;
-    }
-
-    .profile-img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .triangle-images {
-        flex-direction: column;
-    }
-
-    .triangle-img {
-        width: 150px;
-        margin-bottom: 1rem;
-    }
-}
-
 /* Animations */
-@keyframes fadeIn {
+@keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -556,14 +570,43 @@ footer {
     }
 }
 
-section {
-    animation: fadeIn 1s ease-out;
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
-<!--JS-->
-const toggleDarkMode = document.querySelector('#dark-mode-toggle');
 
-toggleDarkMode.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+@keyframes pulse {
+    0% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+section {
+    animation: fadeInUp 1s ease-out;
+}
+
+
+
+<-- JS.....................................................................................................................................................................................................-->
+// Smooth scrolling for navigation links
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
-
 
